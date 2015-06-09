@@ -8,7 +8,7 @@ Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.do
 
 ## Configuration
 
-  - please note this container has to be run in 'privilged' mode so that host hardware can be exposed to it.
+  - please note container has to run in 'privilged' mode so that the host hardware is exposed to it.
   - exposed port 1311
   - default command: `/opt/dell/srvadmin/sbin/srvadmin-services.sh start`
   - login credentials: root / password
@@ -20,6 +20,8 @@ $ docker run --privileged -d -p 1311:1311 \
    -v /lib/modules/`uname -r`:/lib/modules/`uname -r`\
    --name=omsa74 jdelaros1/openmanage:7.4
 ```
+
+After the container starts, give it about 10-15 seconds for all the OpenManage services to start inside the container.
 
 ## Known Issues
 
