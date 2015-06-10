@@ -29,6 +29,7 @@ From the CLI, you can run something like `docker exec omsa81 omreport system sum
 ## Known Issues
 
   - NIC and MAC information is not displayed.
+  - The OS information provided is what's in the container, not in the host.
 
 ## Support
 
