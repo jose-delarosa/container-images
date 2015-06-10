@@ -9,7 +9,7 @@ Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.do
 
 ## Configuration
 
-  - container has to run in 'privilged' mode so that the host hardware can be exposed to it.
+  - container has to run in privilged mode so that the host hardware can be exposed to it.
   - exposed port 1311
   - default command: `/opt/dell/srvadmin/sbin/srvadmin-services.sh start`
   - login credentials: root / password
@@ -24,11 +24,11 @@ $ docker run --privileged -d -p 1311:1311 --restart=always \
 
 Once the container starts, give it about 10-15 seconds for all the OpenManage services to start inside the container.
 
-From the CLI, you can run something like `docker exec omsa81 omreport system summary` or use a browser and go to https://<your-server-ip>:1311.
+From the CLI, you can run something like `docker exec omsa81 omreport system summary` or use a browser to go to https://your-server-ip:1311 and use login credentials listed above.
 
 ## Known Issues
 
-  - NIC and MAC information is not found.
+  - NIC and MAC information is not displayed.
 
 ## Support
 
