@@ -2,11 +2,6 @@
 
 Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.docker.com/u/library/centos/) images.
 
-## Image tags
-
-- jdelaros1/openmanage:latest
-- jdelaros1/openmanage:8.1
-
 ## Configuration
 
   - container has to run in privilged mode so that the host hardware can be exposed to it.
@@ -26,7 +21,7 @@ Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.do
 ```bash
 $ docker run --privileged -d -p 1311:1311 --restart=always \
    -v /lib/modules/`uname -r`:/lib/modules/`uname -r` \
-   --name=omsa81 jdelaros1/openmanage:8.1
+   --name=omsa81 jdelaros1/openmanage:latest
 ```
 
 Once the container starts, give it about 20-25 seconds for all the OpenManage services to start inside the container.
