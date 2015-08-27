@@ -1,9 +1,6 @@
 # Must be run as --privileged and --net=host
 FROM centos:centos7
 MAINTAINER Jose De la Rosa "https://github.com/jose-delarosa"
-ENV http_proxy http://dlr.linuxdev.us.dell.com:5865
-ENV https_proxy http://dlr.linuxdev.us.dell.com:5865
-ENV no_proxy linux.dell.com
 
 # Update and install required packages
 RUN yum -y update
