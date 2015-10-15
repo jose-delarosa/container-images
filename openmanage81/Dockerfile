@@ -1,6 +1,6 @@
 # Use CentOS 7 base image from Docker Hub
 FROM centos:centos7
-MAINTAINER Jose De la Rosa "https://github.com/jose-delarosa" 
+MAINTAINER Jose De la Rosa "https://github.com/jose-delarosa"
 
 # Do overall update and install missing packages needed for OpenManage
 RUN yum -y update
@@ -21,6 +21,9 @@ RUN yum clean all
 
 # Add to PATH
 ENV PATH $PATH:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/sbin
+
+# Prevent daemon helper scripts from making systemd calls
+ENV SYSTEMCTL_SKIP_REDIRECT=1
 
 # Restart application to ensure a clean start
 CMD srvadmin-services.sh restart && tail -f /opt/dell/srvadmin/var/log/openmanage/dcsys64.xml
