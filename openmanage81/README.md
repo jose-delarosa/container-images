@@ -21,8 +21,11 @@ Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.do
 
 ```bash
 $ docker run --privileged -d -p 1311:1311 --restart=always \
-   --name=omsa81 jdelaros1/openmanage
+    -v /lib/modules/`uname -r`:/lib/modules/`uname -r` \
+    --name=omsa81 jdelaros1/openmanage
 ```
+
+UPDATE (11.20.2015): Testing without volume mounting /lib/modules resulted in mixed results across different servers, so I am adding this requirement back.
 
 Once the container starts, give it about 20-25 seconds for all the OpenManage services to start inside the container.
 
