@@ -28,7 +28,40 @@ Testing without volume mounting /lib/modules resulted in mixed results across di
 
 Once the container starts, give it about 20-25 seconds for all the OpenManage services to start inside the container.
 
-From the CLI, you can run something like `docker exec omsa82 omreport system summary` or use a browser to go to https://your-server-ip:1311 and use login credentials listed above.
+You can monitor your server by going to https://your-server:1311. Use the login credentials given above. You can also run commands from a command console:
+
+```
+$ docker exec omsa82 omreport chassis bios
+BIOS Information
+
+Manufacturer : Dell Inc.
+Version      : 1.2.6
+Release Date : 06/08/2015
+
+$ docker exec omsa82 omreport chassis processors
+Processors Information
+
+Health : Ok
+
+Index             : 0
+Status            : Ok
+Connector Name    : CPU1
+Processor Brand   : Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+Processor Version : Model 63 Stepping 2
+Current Speed     : 2400  MHz
+State             : Present
+Core Count        : 8
+
+Index             : 1
+Status            : Ok
+Connector Name    : CPU2
+Processor Brand   : Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+Processor Version : Model 63 Stepping 2
+Current Speed     : 2400  MHz
+State             : Present
+Core Count        : 8
+
+```
 
 ## Known Issues
 
