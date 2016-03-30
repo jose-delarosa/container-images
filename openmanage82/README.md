@@ -1,6 +1,6 @@
 # Dell OpenManage
 
-Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.docker.com/u/library/centos/) images.
+Dockerized OpenManage Server Administrator (OMSA), built on top of [official CentOS](https://registry.hub.docker.com/u/library/centos/) images.
 
 ## Configuration
 
@@ -27,6 +27,8 @@ $ docker run --privileged -d -p 1311:1311 --restart=always \
 Testing without volume mounting /lib/modules resulted in mixed results across different servers, so I added this requirement back.
 
 Once the container starts, give it about 20-25 seconds for all the OpenManage services to start inside the container.
+
+## Use
 
 You can monitor your server by going to https://your-server:1311. Use the login credentials given above. You can also run commands from a command console:
 
