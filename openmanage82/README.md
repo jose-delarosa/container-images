@@ -28,7 +28,7 @@ Testing without volume mounting /lib/modules resulted in mixed results across di
 
 Once the container starts, give it about 20-25 seconds for all the OpenManage services to start inside the container.
 
-## Use
+## Usage examples
 
 You can monitor your server by going to https://your-server:1311. Use the login credentials given above. You can also run commands from a command console:
 
@@ -63,6 +63,17 @@ Current Speed     : 2400  MHz
 State             : Present
 Core Count        : 8
 
+```
+
+## SNMP support
+
+This image does not have support for SNMP. To create an image with SNMP support, look in the snmp directory for an updated Dockerfile. When running this image, don't forget to open port 161/udp.
+
+
+```bash
+$ docker run --privileged -d -p 161:161/udp -p 1311:1311 --restart=always \
+    -v /lib/modules/`uname -r`:/lib/modules/`uname -r` \
+    --name=omsa82 jdelaros1/openmanage
 ```
 
 ## Known Issues
