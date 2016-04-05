@@ -67,7 +67,7 @@ Core Count        : 8
 
 ## SNMP support
 
-This image does not have support for SNMP. To create an image with SNMP support, look in the snmp directory for an updated Dockerfile. When running this image, don't forget to open port 161/udp.
+This image does not have support for SNMP. To create an image with SNMP support, look [here](https://github.com/jose-delarosa/docker-images/tree/master/openmanage82/snmp) for an updated Dockerfile. When running this image, don't forget to open port 161/udp.
 
 
 ```bash
