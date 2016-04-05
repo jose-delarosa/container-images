@@ -14,7 +14,7 @@ Use against a server running OMSA with SNMP enabled and properly configured. Che
 ## Run example
 
 ```bash
-$ docker run -it --rm checkopenmanage check_openmanage -H <server-with-omsa>
+$ docker run -it --rm jdelaros1/checkopenmanage check_openmanage -H <server-with-omsa>
 OK - System: 'PowerEdge R730', SN: 'xyzxyz', 256 GB ram (16 dimms), 2 logical drives, 8 physical drives
 ```
 
@@ -24,4 +24,4 @@ Please note this image is provided as-is and not supported by Dell in any shape 
 
 ## Report problems or provide feedback
 
-If you run into any problems or would like to provide feedback, please send a note to the [Linux-PoweEdge mailing list](https://lists.us.dell.com/mailman/listinfo/linux-poweredge).
+If you run into any problems or would like to provide feedback, please open an issue [here](https://github.com/jose-delarosa/docker-images/issues) or send a note to the [Linux-PoweEdge mailing list](https://lists.us.dell.com/mailman/listinfo/linux-poweredge).
