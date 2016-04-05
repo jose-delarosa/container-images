@@ -1,10 +1,10 @@
 # check_openmanage - Dell OpenManage plugin for Nagios
 
-Dockerized Nagios plugin check_openmanage to query a Dell server running OpenManange Server Administrator (OMSA) via SNMP. Built on top of [official CentOS](https://registry.hub.docker.com/u/library/centos/) images.
+Dockerized [Nagios plugin check_openmanage http://folk.uio.no/trondham/software/check_openmanage.html] to query a Dell server running OpenManange Server Administrator (OMSA) via SNMP. Built on top of [official CentOS](https://registry.hub.docker.com/u/library/centos/) images.
 
 ## Configuration
 
-  - For this image to work, you must point to a server running OMSA with SNMP eabled.
+  - Use against a server running OMSA with SNMP eabled.
 
 ## Where this image has been tested
 
@@ -15,7 +15,7 @@ Dockerized Nagios plugin check_openmanage to query a Dell server running OpenMan
 
 ```bash
 $ docker run -it --rm checkopenmanage check_openmanage -H <server-with-omsa>
-OK - System: 'PowerEdge T730', SN: 'xyzxyz', 256 GB ram (16 dimms), 2 logical drives, 8 physical drives
+OK - System: 'PowerEdge R730', SN: 'xyzxyz', 256 GB ram (16 dimms), 2 logical drives, 8 physical drives
 ```
 
 ## Support
