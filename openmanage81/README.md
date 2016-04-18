@@ -5,6 +5,7 @@ Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.do
 ## Configuration
 
   - container has to run in privilged mode so that the host hardware can be exposed to it.
+  - specifying --net=host exposes the host's network interfaces to the container, otherwise they will not be available.
   - default command: `/opt/dell/srvadmin/sbin/srvadmin-services.sh restart` so that services can start cleanly in case container is stopped and then restarted.
   - login credentials: root / password
 
@@ -20,7 +21,7 @@ Dockerized OpenManage, built on top of [official CentOS](https://registry.hub.do
 
 ```bash
 $ docker run --privileged -d -p 1311:1311 --restart=always \
-    -v /lib/modules/`uname -r`:/lib/modules/`uname -r` \
+    --net=host -v /lib/modules/`uname -r`:/lib/modules/`uname -r` \
     --name=omsa81 jdelaros1/openmanage
 ```
 
@@ -34,7 +35,6 @@ From the CLI, you can run something like `docker exec omsa81 omreport system sum
 
 ## Known Issues
 
-  - IP and MAC information in network controllers is not available.
   - OS information reported is for the container, not the host.
 
 ## Support
@@ -43,4 +43,4 @@ Please note this image is provided as-is and not supported by Dell in any shape 
 
 ## Report problems or provide feedback
 
-If you run into any problems or would like to provide feedback, please send a note to the [Linux-PoweEdge mailing list](https://lists.us.dell.com/mailman/listinfo/linux-poweredge).
+If you run into any problems or would like to provide feedback, please open an issue [here](https://github.com/jose-delarosa/docker-images/issues) or send a note to the [Linux-PoweEdge mailing list](https://lists.us.dell.com/mailman/listinfo/linux-poweredge).
