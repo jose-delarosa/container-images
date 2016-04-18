@@ -5,7 +5,7 @@ Dockerized OpenManage Server Administrator (OMSA), built on top of [official Cen
 ## Configuration
 
   - container has to run in privilged mode so that the host hardware can be exposed to it.
-  - specifying --net=host exposes the host's network interfaces to the container, otherwise they will not be available.
+  - specifying `--net=host` exposes the host's network interfaces to the container, otherwise they will not be available.
   - default command: `/opt/dell/srvadmin/sbin/srvadmin-services.sh restart` so that services can start cleanly in case container is stopped and then restarted.
   - login credentials: root / password
 
