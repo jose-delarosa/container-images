@@ -5,8 +5,8 @@ Dockerized [iSM](http://en.community.dell.com/techcenter/systems-management/w/wi
 ## Configuration
 
   - container has to run in privilged mode.
-  - container has to run with --net=host so it can access 'idrac' USB interface.
-  - volume mount /var/log/ so that iSM has access to host OS logs
+  - container has to run with `--net=host` so it can access `idrac` USB interface.
+  - volume mount `/var/log/` so that iSM has access to host OS logs
   - default command: `/opt/dell/srvadmin/iSM/sbin/dsm_ism_srvmgrd`.
 
 ## Where this image has been tested
