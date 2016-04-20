@@ -25,7 +25,7 @@ $ docker run --privileged -d -P -v /var/log:/var/log --restart=always \
 
 ## Known Issues
 
-  - None so far.
+  - OS information reported is for the container, not the host.
 
 ## Support
 
