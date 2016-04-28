@@ -14,7 +14,7 @@ Use against a server running OMSA with SNMP enabled and properly configured. Che
 ## Run example
 
 ```bash
-$ docker run -it --rm jdelaros1/checkopenmanage check_openmanage -H <server-with-omsa>
+$ docker run -it --rm jdelaros1/check_openmanage check_openmanage -H <server-with-omsa>
 OK - System: 'PowerEdge R730', SN: 'xyzxyz', 256 GB ram (16 dimms), 2 logical drives, 8 physical drives
 ```
 
