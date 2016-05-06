@@ -2,10 +2,10 @@
 
 Dockerized OpenManage Server Administrator (OMSA), built on top of [official CentOS](https://registry.hub.docker.com/u/library/centos/) images.
 
-## This is a test image
+## Notes
 
+  - This is a test image
   - This image includes SNMP support
-  - For use instructions, please go [here](https://github.com/jose-delarosa/docker-images/tree/master/openmanage82).
 
 ## Run example
 
