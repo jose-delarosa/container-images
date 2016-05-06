@@ -24,6 +24,7 @@ RUN yum -y install srvadmin-all && yum clean all
 
 # Used to start services
 COPY bootstrap.sh /usr/local/bin/bootstrap.sh
+RUN chmod +x /usr/local/bin/bootstrap.sh
 
 # Prevent daemon helper scripts from making systemd calls
 ENV SYSTEMCTL_SKIP_REDIRECT=1
