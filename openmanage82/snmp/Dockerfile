@@ -1,6 +1,4 @@
-# OMSA image with SNMP support
-# Don't forget to open port 161/udp when running container
-# Use CentOS 7 base image from Docker Hub
+# OMSA image with SNMP support. Open port 161/udp when running container.
 FROM centos:centos7
 MAINTAINER Jose De la Rosa "https://github.com/jose-delarosa"
 
@@ -22,12 +20,8 @@ RUN wget -q -O - http://linux.dell.com/repo/hardware/dsu/bootstrap.cgi | bash
 # Let's "install all", however we can select specific components instead
 RUN yum -y install srvadmin-all && yum clean all
 
-# Used to start services
-COPY bootstrap.sh /usr/local/bin/bootstrap.sh
-RUN chmod +x /usr/local/bin/bootstrap.sh
-
 # Prevent daemon helper scripts from making systemd calls
 ENV SYSTEMCTL_SKIP_REDIRECT=1
 
-# Run commands inside wrapper script
-CMD /usr/local/bin/bootstrap.sh
+# Restart application to ensure a clean start
+CMD srvadmin-services.sh restart && /usr/sbin/snmpd && tail -f /opt/dell/srvadmin/var/log/openmanage/dcsys32.xml

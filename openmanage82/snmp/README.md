@@ -4,7 +4,6 @@ Dockerized OpenManage Server Administrator (OMSA), built on top of [official Cen
 
 ## Notes
 
-  - This is a test image
   - This image includes SNMP support
 
 ## Run example
@@ -12,7 +11,7 @@ Dockerized OpenManage Server Administrator (OMSA), built on top of [official Cen
 ```bash
 $ docker run --privileged -d -p 161:161/udp -p 1311:1311 --restart=always \
     --net=host -v /lib/modules/`uname -r`:/lib/modules/`uname -r` \
-    --name=omsa82-snmpd jdelaros1/openmanage-snmpd
+    --name=omsa82-snmp jdelaros1/openmanage-snmp
 ```
 
 ## Report problems or provide feedback
