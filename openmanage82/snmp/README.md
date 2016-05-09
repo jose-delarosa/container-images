@@ -5,6 +5,7 @@ Dockerized OpenManage Server Administrator (OMSA), built on top of [official Cen
 ## Notes
 
   - This image includes SNMP support
+  - Uses default public community string
 
 ## Run example
 
