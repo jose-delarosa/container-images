@@ -14,8 +14,8 @@ RUN yum -y update && \
 # Set login credentials
 RUN echo "$USER:$PASS" | chpasswd
 
-# Add OMSA repo
-RUN wget -q -O - http://linux.dell.com/repo/hardware/dsu/bootstrap.cgi | bash
+# Add OMSA repo. Let's use this DSU version with a known stable OMSA.
+RUN wget -q -O - http://linux.dell.com/repo/hardware/DSU_16.02.00/bootstrap.cgi | bash
 
 # Let's "install all", however we can select specific components instead
 RUN yum -y install srvadmin-all && yum clean all
