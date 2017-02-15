@@ -1,17 +1,19 @@
+# This container doesn't do anything except run the sshd daemon. It can be used
+# as a contained environment accessed remotely to retrieve or drop files for
+# archival. Persistent storage must be provided for permanent storage.
 FROM centos:centos7
-MAINTAINER Jose De la Rosa "https://github.com/jose-delarosa"
+MAINTAINER Jose Delarosa "https://github.com/jose-delarosa"
 
-# User we'll use to login with
-ENV USER user 
+# User to login with
+ENV USER jose 
 
 # Update and install required packages
 RUN yum -y update && yum -y install openssh-server; yum clean all
 
-# Create needed SSH keys
-RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key; \
-    ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N j3abnYQ9ju7g
+# Create SSH keys
+RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 
-# Setup for certificate login ONLY
+# Edit SSH config file to allow login via certificate only
 RUN sed -i -e 's/#RSAAuthentication yes/RSAAuthentication yes/' \
            -e 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' \
            -e 's/#PermitRootLogin yes/PermitRootLogin no/' \
@@ -19,11 +21,11 @@ RUN sed -i -e 's/#RSAAuthentication yes/RSAAuthentication yes/' \
            -e 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/' \
            /etc/ssh/sshd_config
 
-# Create user ($HOME for $USER will be /home/$USER)
-RUN useradd -c "Login User" -m $USER; \
-    mkdir /home/$USER/.ssh && chmod 700 /home/$USER/.ssh
+# Create user and directory where public key will be dropped.
+# Alternatively, /home/$USER could be volume-mounted so no need to mkdir ~/.ssh
+RUN useradd -m $USER; mkdir /home/$USER/.ssh && chmod 700 /home/$USER/.ssh
 
-# Place public SSH key in place
+# Copy public SSH key into container.
 COPY id_rsa.pub /home/$USER/.ssh/authorized_keys
 RUN chown -R $USER.$USER /home/$USER/.ssh
 
