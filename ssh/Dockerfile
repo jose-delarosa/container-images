@@ -1,6 +1,6 @@
 # This container doesn't do anything except run the sshd daemon. It can be used
 # as a contained environment accessed remotely to retrieve or drop files for
-# archival. Persistent storage must be provided for permanent storage.
+# archival.
 FROM centos:centos7
 MAINTAINER Jose Delarosa "https://github.com/jose-delarosa"
 
