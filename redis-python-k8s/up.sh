@@ -1,4 +1,4 @@
-cd /share1/git/docker-images/redis-python
+cd /share1/git/docker-images/redis-python-k8s
 docker build -t myapp .
 
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
@@ -14,10 +14,10 @@ docker push m1.dlr.com:5000/myapp
 docker rmi m1.dlr.com:5000/myapp
 docker rmi myapp
 
-kubectl apply -f /root/redis.yml
+kubectl apply -f redis.yml
 echo "Sleeping for 5 seconds..."
 sleep 5
-kubectl apply -f /root/myapp.yml
+kubectl apply -f myapp.yml
 
-kubectl get all -o wide
+kubectl get all
 echo "Done!"
