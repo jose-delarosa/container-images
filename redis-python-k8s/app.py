@@ -5,8 +5,10 @@ import socket
 from flask import Flask
 
 app = Flask(__name__)
-redishost=os.getenv('REDIS_SERVICE_SERVICE_HOST')
-redisport=os.getenv('REDIS_SERVICE_SERVICE_PORT')
+redishost=os.environ.get('REDISSVC_SERVICE_HOST')
+redisport=os.environ.get('REDISSVC_SERVICE_PORT')
+print("redishost=%s" % redishost)
+print("redisport=%s" % redisport)
 cache = redis.Redis(redishost, redisport)
 
 def get_hit_count():
