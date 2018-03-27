@@ -1,5 +1,5 @@
-FROM python:2.7-alpine
+FROM python:2
 ADD . /code
 WORKDIR /code
 RUN pip install -r requirements.txt
-CMD ["python", "app.py"]
+CMD ["python", "frontend.py"]
