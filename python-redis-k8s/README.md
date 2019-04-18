@@ -39,7 +39,9 @@ $ curl http://<frontend-service-IP>:5000
 Host: frontend-b7c67b745-mzdf7, Count: 3
 ```
 
-Since this example is not using persistent storage, if you deploy more than one pod, it is very likely that the python application will hit a different redis pod each time, so the counter will vary from pod to pod.
+In this example I have 3 application pods, so notice how the python pod name being used is different each time. This is random, the k8s service will select the pod that finds most suitable.
+
+Since I am not using persistent storage here, if you deploy more than one redis pod, it is very likely that the python application will hit a different redis pod each time, so the counter will vary from pod to pod.
 
 ## Support
 
