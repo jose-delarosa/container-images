@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM quay.io/jose_e_delarosa/python:3-slim
 ADD . /code
 WORKDIR /code
 RUN pip3 install -r requirements.txt
