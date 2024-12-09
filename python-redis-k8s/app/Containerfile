@@ -2,4 +2,4 @@ FROM python:3-slim
 ADD . /code
 WORKDIR /code
 RUN pip3 install -r requirements.txt
-CMD ["python", "frontend.py"]
+CMD ["python3", "app.py"]
